@@ -1,14 +1,10 @@
 namespace CadastroCilente
 {
-    public abstract class Pessoa  //criando a classe abstrata Pessoa
+    public abstract class Pessoa  //Criando a classe abstrata Pessoa
     {
-        public string nome { get; set; } // criando o atributo nome
-        public string endereco { get; set; } // criando o atributo nome
-        public bool enderecoComercial { get; set; }
-        public void pagarImposto(){
-
-        }
-        
+        public string nome { get; set; } //Criando o atributo nome
+        public Endereco endereco {get; set;} //Criando o atributo endereço
+        public abstract void pagarImposto(float salario); //Criando o método pagar imposto
         
         
         
