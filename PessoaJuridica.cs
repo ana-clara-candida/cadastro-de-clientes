@@ -10,7 +10,7 @@ namespace CadastroCilente
         }
         
          public bool validarCnpj(string vcnpj){
-            if(vcnpj.Length == 14 && vcnpj.Substring(vcnpj.Length - 4) == "0001"){
+            if(vcnpj.Length == 14 && vcnpj.Substring(vcnpj.Length - 6, 4) == "0001"){
                 return true;
             }
             return false;
