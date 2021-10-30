@@ -80,6 +80,7 @@ namespace CadastroCilente
                 pf.cpf = "64596045603496";
                 pf.nome = "exemplo";
                 pf.dataNascimento = new DateTime(2003, 05, 04);
+                pf.rendimento = 5001;
 
                 pf.validarDataNascimento(pf.dataNascimento); // Chamando o método para validar a data de nascimento
                 Console.WriteLine($"{end.logradouro}, n° {end.numero}"); // Mostra o logradouro e o número no console
@@ -88,6 +89,10 @@ namespace CadastroCilente
                 }else{ // Se não..
                     Console.WriteLine($"Erro: Você precisa ser maior de idade para se cadastrar"); // Mostre uma mensagem de erro no console
                 }
+
+                Console.WriteLine(pf.pagarImposto(pf.rendimento));
+                
+
                 break;
             case "j":
                 Console.WriteLine("pessoa jurídica");
@@ -104,6 +109,8 @@ namespace CadastroCilente
                 aaaa.razaoSocial = "abcd";
                 aaaa.cnpj = "12345678000190";
                 aaaa.endereco = end1;
+                aaaa.rendimento = 5000;
+
 
                 aaaa.validarCnpj(aaaa.cnpj);
                 if(aaaa.validarCnpj(aaaa.cnpj)){
@@ -111,6 +118,10 @@ namespace CadastroCilente
                 }else{
                     Console.WriteLine($"Erro: O CNPJ informado é inválido");
                 }
+
+                Console.WriteLine(aaaa.pagarImposto(aaaa.rendimento));
+                
+
                 break;
             case "s":
                 Console.WriteLine("Encerrando sistema");
@@ -119,7 +130,7 @@ namespace CadastroCilente
             default:
                 Console.WriteLine("Opção inválida, tente novamente");
                 break;
-        }      
+            }      
     }   while (opcao != "s");
     }
 
