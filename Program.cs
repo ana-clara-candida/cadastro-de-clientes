@@ -8,17 +8,17 @@ namespace CadastroCilente
         static void Main(string[] args)
         {
             
-            string opcao;
+            string opcao; // Criando a variável que armazena a opção escolhida pelo usuário
 
-            Console.Clear();
-            Console.Write(@$"Iniciando...");
-            Thread.Sleep(600);
-            for (var i = 0; i < 10; i++)
+            Console.Clear(); // Limpa o console para a execução do programa
+            Console.Write(@$"Iniciando... "); // Mensagenm de carregamento
+            Thread.Sleep(600); // Para a execução do programa por 600ms (0,6 segundos)
+            for (var i = 0; i < 10; i++) // Contador que adiciona os caracteres durante o carregamento. Para i < 10, incrementando seu valor a cada execução...
             {
-                Console.Write("*");
+                Console.Write("*"); // ...coloque um * no console
             }
 
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.DarkGreen; // Define a cor da fonte do console como verde escuro
             Console.WriteLine(@$"
                                                                                  
                    8                 o                      8        
@@ -38,15 +38,13 @@ namespace CadastroCilente
 8YooP' `Yooo' `YooP' `YooP' `YooP' `YooP8 `YooP' 
 8 ....::.....::.....::.....::.....::.....::.....:
 8 :::::::::::::::::::::::::::::::::::::::::::::::
-..:::::::::::::::::::::::::::::::::::::::::::::::");
+..:::::::::::::::::::::::::::::::::::::::::::::::"); // Exibe a tela de inicialização do programa
 
-     Console.ResetColor();
+     Console.ResetColor(); // Reseta a cor do console
 
-    
-  
-    do
+    do // Começo do loop do menu. Faça...
     {
-        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.ForegroundColor = ConsoleColor.Cyan; // Define a cor da fonte do console como ciano
         Console.WriteLine(@$"
 ++++++++++++++++++++++++++++++++++++++++++++++
 |       Selecione uma das opções abaixo:     |
@@ -57,17 +55,16 @@ namespace CadastroCilente
 |                                            |
 |                                            |
 |   's' - sair do programa                   |
-|____________________________________________|"); 
-        Console.ResetColor();
+|____________________________________________|"); // Exibe o menu
+       
+        Console.ResetColor(); // Reseta a cor do console
+        opcao = Console.ReadLine().ToLower(); // Faz com que a variável opcao receba o input do usuário convertido para minúsculo
 
-
-        opcao = Console.ReadLine().ToLower();
-        switch(opcao)
-        {
-            case "f":
-                Console.WriteLine("pessoa física");
-                PessoaFisica pf = new PessoaFisica(); // Criando uma nova pessoa física
-                Endereco end = new Endereco(); // Criando um novo endereço
+        switch(opcao) { // Criando o switch case da opção do usuário
+            case "f": // Caso seja f...
+                Console.WriteLine("pessoa física"); //...escreve pessoa física no console
+                PessoaFisica pf = new PessoaFisica(); // Cria uma nova pessoa física
+                Endereco end = new Endereco(); // Cria um novo endereço
 
                 // Definindo os atributos do endereço
                 end.logradouro = "rua n";
@@ -75,63 +72,64 @@ namespace CadastroCilente
                 end.complemento = "Bem ali";
                 end.enderecoComercial = false;
                 
-                // Definindo os atributos da pessoa (incluindo o endereço que criamos anteriormente)
+                // Define os atributos da pessoa (incluindo o endereço que criamos anteriormente)
                 pf.endereco = end;
                 pf.cpf = "64596045603496";
                 pf.nome = "exemplo";
                 pf.dataNascimento = new DateTime(2003, 05, 04);
                 pf.rendimento = 5001;
 
-                pf.validarDataNascimento(pf.dataNascimento); // Chamando o método para validar a data de nascimento
+                pf.validarDataNascimento(pf.dataNascimento); // Chama o método para validar a data de nascimento
                 Console.WriteLine($"{end.logradouro}, n° {end.numero}"); // Mostra o logradouro e o número no console
                 if(pf.validarDataNascimento(pf.dataNascimento) == true){ // Se o método de validação retornar verdadeiro...
-                    Console.WriteLine($"Cadasto realizado com sucesso!"); // Mostre no console que o cadastro foi realizado com sucesso
-                }else{ // Se não..
-                    Console.WriteLine($"Erro: Você precisa ser maior de idade para se cadastrar"); // Mostre uma mensagem de erro no console
+                    Console.WriteLine($"Cadasto realizado com sucesso!"); // Mostra no console que o cadastro foi realizado com sucesso
+                }else{ // Se não...
+                    Console.WriteLine($"Erro: Você precisa ser maior de idade para se cadastrar"); // Mostra uma mensagem de erro no console
                 }
 
-                Console.WriteLine(pf.pagarImposto(pf.rendimento));
+                Console.WriteLine(pf.pagarImposto(pf.rendimento)); // Mostra o retorno do método de pagar imposto no console
                 
-
                 break;
-            case "j":
-                Console.WriteLine("pessoa jurídica");
-                PessoaJuridica aaaa = new PessoaJuridica(); // Criando uma nova pessoa jurídica
-                Endereco end1 = new Endereco(); // Criando um novo endereço
 
-                // Definindo os atributos do endereço
+            case "j": // Caso seja j...
+                Console.WriteLine("pessoa jurídica"); //...escreve pessoa jurídica no console
+                PessoaJuridica aaaa = new PessoaJuridica(); // Cria uma nova pessoa jurídica
+                Endereco end1 = new Endereco(); // Cria um novo endereço
+
+                // Define os atributos do endereço
                 end1.logradouro = "rua x";
                 end1.numero = 96;
                 end1.complemento = "Em algum lugar";
                 end1.enderecoComercial = true;
 
-                // Definindo os atributos da pessoa (incluindo o endereço criado anteriormente)
+                // Define os atributos da pessoa (incluindo o endereço criado anteriormente)
                 aaaa.razaoSocial = "abcd";
                 aaaa.cnpj = "12345678000190";
                 aaaa.endereco = end1;
                 aaaa.rendimento = 5000;
 
 
-                aaaa.validarCnpj(aaaa.cnpj);
-                if(aaaa.validarCnpj(aaaa.cnpj)){
-                    Console.WriteLine($"Cadastro realizado com sucesso!");   
-                }else{
-                    Console.WriteLine($"Erro: O CNPJ informado é inválido");
+                aaaa.validarCnpj(aaaa.cnpj); // Chama o método de validação de cnpj
+                if(aaaa.validarCnpj(aaaa.cnpj)){ // Se o CNPJ informado for válido...
+                    Console.WriteLine($"Cadastro realizado com sucesso!");  //...mostre no console que o cadastro foi realizado com sucesso
+                }else{ //Se não...
+                    Console.WriteLine($"Erro: O CNPJ informado é inválido"); //...mostra uma mensagem de erro no console
                 }
 
-                Console.WriteLine(aaaa.pagarImposto(aaaa.rendimento));
+                Console.WriteLine(aaaa.pagarImposto(aaaa.rendimento)); // Mostra o retorno do método de pagar imposto no console
                 
 
                 break;
-            case "s":
-                Console.WriteLine("Encerrando sistema");
-                Console.ResetColor();
+
+            case "s": // Caso seja s...
+                Console.WriteLine("Encerrando sistema"); // ...mostra no console a mensagem de encerramento do sistema
+                Console.ResetColor(); // Reseta a cor do console
                 break;
-            default:
-                Console.WriteLine("Opção inválida, tente novamente");
+            default: // Define a saída padrão
+                Console.WriteLine("Opção inválida, tente novamente"); // Mostra no console a mensagem de opção inválida
                 break;
             }      
-    }   while (opcao != "s");
+    }   while (opcao != "s"); // ...enquanto a opção selecionada for diferente de s
     }
 
     }
