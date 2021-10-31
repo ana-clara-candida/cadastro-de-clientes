@@ -92,7 +92,7 @@ namespace CadastroCilente
                 break;
 
             case "j": // Caso seja j...
-                Console.WriteLine("pessoa jurídica"); //...escreve pessoa jurídica no console
+                Console.WriteLine("pessoa jurídica"); //...escreva pessoa jurídica no console
                 PessoaJuridica aaaa = new PessoaJuridica(); // Cria uma nova pessoa jurídica
                 Endereco end1 = new Endereco(); // Cria um novo endereço
 
@@ -109,11 +109,11 @@ namespace CadastroCilente
                 aaaa.rendimento = 5000;
 
 
-                aaaa.validarCnpj(aaaa.cnpj); // Chama o método de validação de cnpj
+                aaaa.validarCnpj(aaaa.cnpj); // Chama o método de validação de CNPJ
                 if(aaaa.validarCnpj(aaaa.cnpj)){ // Se o CNPJ informado for válido...
                     Console.WriteLine($"Cadastro realizado com sucesso!");  //...mostre no console que o cadastro foi realizado com sucesso
                 }else{ //Se não...
-                    Console.WriteLine($"Erro: O CNPJ informado é inválido"); //...mostra uma mensagem de erro no console
+                    Console.WriteLine($"Erro: O CNPJ informado é inválido"); //...mostre uma mensagem de erro no console
                 }
 
                 Console.WriteLine(aaaa.pagarImposto(aaaa.rendimento)); // Mostra o retorno do método de pagar imposto no console
@@ -122,7 +122,7 @@ namespace CadastroCilente
                 break;
 
             case "s": // Caso seja s...
-                Console.WriteLine("Encerrando sistema"); // ...mostra no console a mensagem de encerramento do sistema
+                Console.WriteLine("Encerrando sistema"); // ...mostre no console a mensagem de encerramento do sistema
                 Console.ResetColor(); // Reseta a cor do console
                 break;
             default: // Define a saída padrão
