@@ -4,30 +4,17 @@ namespace CadastroCilente
 {
     public class PessoaFisica : Pessoa // Criando a classe Pessoa Física, que herda atributos da Pessoa
     {
-        public PessoaFisica()
-        {
-        }
-
-        public PessoaFisica(string cpf, DateTime dataNascimento) 
-        {
-            this.cpf = cpf;
-                this.dataNascimento = dataNascimento;
-               
-        }
-                public string cpf { get; set; } // Criando o atributo CPF, que é uma string pública
+        public string cpf { get; set; } // Criando o atributo CPF, que é uma string pública
         public DateTime dataNascimento { get; set; } // Criando o atributo data de nascimento, que é uma data pública
         public override double pagarImposto(double rendimento){ // Sobrescrevendo o método de pagar imposto
-        
-        if(rendimento <= 1500){
-        return 0;
-        }else if(rendimento <= 5000){
-          return rendimento * .03;
-        }else{
-         return .05 * rendimento;
+        if(rendimento <= 1500){ // Se o rendimento for menor ou igual a 1500...
+        return 0; // Retorne 0
+        }else if(rendimento <= 5000){ // Se o rendimento for menor ou igual a 5000...
+          return rendimento * .03; // Retorne 3% do rendimento (ou rendimento . 0,03) 
+        }else{ // Se não...
+         return .05 * rendimento; // Retorne 5% do rendimento (ou rendimento . 0,05)
         }
-        
-        
-          
+
         }
         public bool validarDataNascimento (DateTime dataNasc){ // Criando o método booleano para validação da data de nascimento
 
