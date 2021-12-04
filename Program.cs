@@ -121,7 +121,8 @@ namespace CadastroCilente
                 // sw.WriteLine($"{pf.nome}");
                 // sw.Close();
                 
-                using (StreamReader sr = new StreamReader($"{pf.nome}")){
+                using (StreamReader sr = new StreamReader($"{pf.nome}"))
+                {
                     string linha =sr.ReadLine();
                     while (linha != null){
                         Console.WriteLine($"{linha}");
