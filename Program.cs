@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-
+using System.IO;
 namespace CadastroCilente
 {
     class Program
@@ -79,6 +79,9 @@ namespace CadastroCilente
                 // Cadastra os atributos da pessoa 
                 Console.WriteLine("Informe o nome: ");
                 pf.nome = Console.ReadLine();
+                using ( StreamWriter sw = new StreamWriter($"{pf.nome}.txt")){
+                     sw.WriteLine($"{pf.nome}");
+                }
                 Console.WriteLine("Informe o CPF: ");
                 pf.cpf = Console.ReadLine();
                 Console.WriteLine("Informe a data de nascimento (aaaa-mm-dd): ");
@@ -114,6 +117,17 @@ namespace CadastroCilente
                     Console.WriteLine($"Erro: Você precisa ser maior de idade para se cadastrar"); // Mostra uma mensagem de erro no console
                 }
 
+                // StreamWriter sw = new StreamWriter($"{pf.nome}.txt");
+                // sw.WriteLine($"{pf.nome}");
+                // sw.Close();
+                
+                using (StreamReader sr = new StreamReader($"{pf.nome}")){
+                    string linha =sr.ReadLine();
+                    while (linha != null){
+                        Console.WriteLine($"{linha}");
+                        
+                    }
+                }
                 break;
             case "lf":
                 foreach (var item in listapf)
@@ -173,8 +187,16 @@ namespace CadastroCilente
                 }
 
                 Console.WriteLine(aaaa.pagarImposto(aaaa.rendimento)); // Mostra o retorno do método de pagar imposto no console
-                
-
+                // aaaa.VerificarArquivo(aaaa.caminho);
+                // aaaa.Inserir(aaaa);
+                if (aaaa.Ler().Count > 0){
+                    foreach (var item in aaaa.Ler()){
+                    Console.WriteLine($"Nome: {item.nome}; Razão social: {item.razaoSocial}; CNPJ: {item.cnpj}");
+                    }
+                }else{
+                    Console.WriteLine($"Lista vazia");
+                    
+                }               
                 break;
             case "lj":
               foreach (var item in listaj)
