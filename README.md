@@ -14,10 +14,10 @@ endereço;
 ## Tecnologias usadas:
 Esse sistema foi desenvolvido com:
 ### Programação
-- [C#] (https://docs.microsoft.com/pt-br/dotnet/csharp/)
-- .NET (https://dotnet.microsoft.com)
+- [C#](https://docs.microsoft.com/pt-br/dotnet/csharp/)
+- [.NET](https://dotnet.microsoft.com)
 ### Editor
-[Visual Studio Code] (https://code.visualstudio.com) 
+[Visual Studio Code](https://code.visualstudio.com) 
 #### Extensões
 - C#
 - C# Snippets
